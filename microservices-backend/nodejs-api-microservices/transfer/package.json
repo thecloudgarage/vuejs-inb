@@ -1,0 +1,61 @@
+{
+  "name": "weighter-react-api",
+  "version": "0.0.1",
+  "description": "REST API to track your weight over time!",
+  "main": "server/server.js",
+  "scripts": {
+    "start": "node server/server.js",
+    "dev": "nodemon"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bradgarropy/weighter-react-api.git"
+  },
+  "keywords": [
+    "javascript",
+    "node",
+    "nodejs",
+    "express",
+    "expressjs",
+    "mongodb",
+    "mongoose",
+    "rest",
+    "rest-api",
+    "web-server",
+    "web-app",
+    "web-application",
+    "dotenv",
+    "nodemailer",
+    "jsonwebtoken",
+    "jwt",
+    "eslint"
+  ],
+  "author": "Brad Garropy",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bradgarropy/weighter-react-api/issues"
+  },
+  "homepage": "https://github.com/bradgarropy/weighter-react-api#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "bluebird": "^3.5.5",
+    "body-parser": "^1.17.2",
+    "cors": "^2.8.4",
+    "dotenv": "^4.0.0",
+    "express": "^4.15.3",
+    "express-validator": "^3.2.1",
+    "helmet": "^3.8.0",
+    "jsonwebtoken": "^8.0.1",
+    "moment": "^2.21.0",
+    "mongoose": "^4.11.2",
+    "nodemailer": "^4.0.1"
+  },
+  "devDependencies": {
+    "eslint": "^4.5.0",
+    "eslint-config-airbnb": "^15.1.0",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-jsx-a11y": "^5.1.1",
+    "eslint-plugin-react": "^7.3.0",
+    "nodemon": "^1.11.0"
+  }
+}
