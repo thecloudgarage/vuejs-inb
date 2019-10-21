@@ -4,9 +4,9 @@ var SlackBot = require('slackbots'); // import slackbot library
 var axios = require('axios');
 var JSON = require('JSON');
 
-/* Create Bot using My Slack Team API KEY */
+/* Create Bot using Bot token */
 var bot = new SlackBot({
-    token: 'xoxb-735697899604-727772311010-Ik3oOtdJalMieXcZGKZ46fxe',
+    token: 'xxxxxxxxxx',
     name: 'testingpb'
 });
 
@@ -45,6 +45,9 @@ var onMessage = (message) => {
       } else if(messagetext.includes("transfers")) {
         var usrtxns = users.find(user => user.id === message.user);
         usrTxns(channel,usrtxns);
+      } else if(messagetext.includes("payees")) {
+        var usrpayees = users.find(user => user.id === message.user);
+        usrPayees(channel,usrpayees);
       }
   }
 }
@@ -80,6 +83,20 @@ var usrTxns = (channel,usrtxns) => {
           }
         });
 }
+
+var usrPayees = (channel,usrpayees) => {
+    axios.get('http://pb-payee-api.cfapps.io/payee/', {params: {payeeAddress:usrpayees.profile.email}})
+        .then(res => {
+            var apipayeeset, x;
+            var apipayeeset = res.data;
+            for (x in apipayeeset) {
+            const initialpayee = apipayeeset[x];
+            const payees = JSON.stringify(initialpayee);
+            bot.postMessageToChannel(channel.name, `${payees}`);
+          }
+        });
+}
+
 
 /* In a nutshell, we are starting to export the two functions for bot.on, one is a greeting and another listens to incoming messages */
 /* Then we use the first method to selectively filter incoming text and call respective functions that will be executed */
