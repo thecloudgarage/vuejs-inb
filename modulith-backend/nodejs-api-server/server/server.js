@@ -43,7 +43,7 @@ app.use(logger.log);
 app.use(validator());
 
 //healthcheck
-app.use('/api', healthcheck)
+app.use('/', healthcheck)
 // user routes
 app.use('/api/user', user);
 
