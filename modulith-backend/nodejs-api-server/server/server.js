@@ -15,6 +15,7 @@ const user = require('./routes/user');
 const balance = require('./routes/balance');
 const payee = require('./routes/payee');
 const transfer = require('./routes/transfer');
+const healthcheck= require('./routes/healthcheck')
 const cors = require('cors');
 
 
@@ -41,7 +42,8 @@ app.use(bodyparser.urlencoded({ extended: true }));
 app.use(logger.log);
 app.use(validator());
 
-
+//healthcheck
+app.use('/api', healthcheck)
 // user routes
 app.use('/api/user', user);
 
